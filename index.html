@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SM Design — Créations FiveM Sur Mesure</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            950: '#050505',
+                            900: '#0a0a0a',
+                            850: '#121212',
+                            800: '#1a1a1a',
+                            700: '#2a2a2a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #050505;
+            color: #f5f5f5;
+        }
+        
+        /* Custom scrollbar monochrome */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 4px;
+        }
+
+        /* Glassmorphism Luxe monochrome */
+        .glass-dark {
+            background: rgba(10, 10, 10, 0.90);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .monochrome-gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-[#050505] text-neutral-100 min-h-screen flex flex-col selection:bg-white selection:text-black">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-40 glass-dark transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Text Only -->
+            <a href="#" class="flex flex-col group">
+                <span class="font-extrabold text-lg tracking-wider uppercase text-white group-hover:text-neutral-300 transition-colors">SM DESIGN</span>
+                <span class="text-[9px] tracking-[0.25em] text-neutral-400 uppercase font-medium">FiveM Customs</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center gap-8 font-medium text-xs tracking-widest uppercase text-neutral-300">
+                <a href="#services" class="hover:text-white transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-white transition-colors">Portfolio</a>
+                <a href="#devis" class="hover:text-white transition-colors">Configurateur</a>
+                <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="flex items-center gap-3">
+                <!-- Admin Button -->
+                <button onclick="openAdminModal()" class="p-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-400 hover:text-white transition-all border border-neutral-800" title="Espace Administration">
+                    <i class="fa-solid fa-lock text-xs"></i>
+                </button>
+
+                <!-- Rejoindre Discord CTA -->
+                <a id="navDiscordBtn" href="https://discord.gg/" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-white border border-neutral-700 font-bold text-xs uppercase tracking-wider transition-all">
+                    <i class="fa-brands fa-discord text-base"></i>
+                    Rejoindre le Discord
+                </a>
+
+                <!-- CTA Devis -->
+                <a href="#devis" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-neutral-200 text-black font-extrabold text-xs uppercase tracking-wider transition-all">
+                    <i class="fa-solid fa-calculator"></i>
+                    Devis Express
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="relative pt-36 pb-20 md:pt-48 md:pb-32 overflow-hidden border-b border-neutral-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 text-xs font-semibold tracking-widest uppercase mb-8">
+                <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                Standard de Qualité FiveM Premium
+            </div>
+
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                Élevez le Visuel de Votre Serveur <br class="hidden sm:inline">
+                <span class="monochrome-gradient-text">SM Design Sur-Mesure</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-neutral-400 text-sm md:text-base mb-10 leading-relaxed font-normal">
+                Conception haut de gamme de livrées, vêtements civils & packs entreprise, tenues EUP et identités visuelles pour Gangs/Organisations sur FiveM. Réponse garantie sous 24h à 48h.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#devis" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white text-black font-extrabold text-xs uppercase tracking-wider hover:bg-neutral-200 transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Lancer un Devis
+                </a>
+                <a href="#portfolio" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-300 font-semibold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-images"></i>
+                    Explorer la Galerie
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SERVICES ================= -->
+    <section id="services" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-3 uppercase tracking-wider">Nos Domaines d'Expertise</h2>
+                <p class="text-neutral-400 text-xs md:text-sm max-w-xl mx-auto">Un savoir-faire spécialisé pour répondre à tous vos besoins en graphisme et modding GTA RP.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800 hover:border-white/40 transition-all group">
+                    <div class="w-10 h-10 rounded-xl bg-white text-black flex items-center justify-center text-lg mb-5 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-car"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Coverings Véhicules</h3>
+                    <p class="text-neutral-400 text-xs leading-relaxed">Création de livrées personnalisées, covering LSPD, EMS, entreprise ou véhicules de luxe high-end.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800 hover:border-white/40 transition-all group">
+                    <div class="w-10 h-10 rounded-xl bg-white text-black flex items-center justify-center text-lg mb-5 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Vêtements & Packs Entreprise</h3>
+                    <p class="text-neutral-400 text-xs leading-relaxed">Texturation haut de gamme pour garde-robes civils, tenues de marques, packs entreprise, et merchandising personnalisé.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800 hover:border-white/40 transition-all group">
+                    <div class="w-10 h-10 rounded-xl bg-white text-black flex items-center justify-center text-lg mb-5 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">EUP & Forces de l'Ordre</h3>
+                    <p class="text-neutral-400 text-xs leading-relaxed">Packs complets EUP LSPD, BCSO, SAHP, US Marshal, SWAT avec détails réalistes et écussons sur mesure.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-neutral-900/40 border border-neutral-800 hover:border-white/40 transition-all group">
+                    <div class="w-10 h-10 rounded-xl bg-white text-black flex items-center justify-center text-lg mb-5 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-users-rays"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Gang/Organisation</h3>
+                    <p class="text-neutral-400 text-xs leading-relaxed">Identités visuelles complètes : bandanas, vestes en cuir, gilets par-balles et tenues de gangs custom.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PORTFOLIO ================= -->
+    <section id="portfolio" class="py-20 bg-neutral-950/80 border-y border-neutral-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-2 uppercase tracking-wider">Portfolio de Réalisations</h2>
+                    <p class="text-neutral-400 text-xs">Cliquez sur un projet pour consulter l'ensemble des photos associées.</p>
+                </div>
+
+                <div class="flex flex-wrap gap-2" id="filterContainer">
+                    <button onclick="filterPortfolio('all')" class="filter-btn active px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-white text-black" data-filter="all">Tous</button>
+                    <button onclick="filterPortfolio('coverings')" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-neutral-900 text-neutral-400 border border-neutral-800 hover:text-white" data-filter="coverings">Coverings</button>
+                    <button onclick="filterPortfolio('vetements')" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-neutral-900 text-neutral-400 border border-neutral-800 hover:text-white" data-filter="vetements">Vêtements & Packs Entreprise</button>
+                    <button onclick="filterPortfolio('eup')" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-neutral-900 text-neutral-400 border border-neutral-800 hover:text-white" data-filter="eup">EUP</button>
+                    <button onclick="filterPortfolio('gang_organisation')" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-neutral-900 text-neutral-400 border border-neutral-800 hover:text-white" data-filter="gang_organisation">Gang/Organisation</button>
+                </div>
+            </div>
+
+            <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+    </section>
+
+    <!-- ================= LIGHTBOX / VISIONNEUSE PHOTO ================= -->
+    <div id="galleryModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md hidden flex flex-col items-center justify-center p-4">
+        <button onclick="closeGalleryModal()" class="absolute top-6 right-6 text-neutral-400 hover:text-white text-2xl z-50">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="max-w-4xl w-full flex flex-col items-center">
+            <div class="relative w-full h-[60vh] max-h-[600px] flex items-center justify-center mb-4">
+                <img id="modalMainImage" src="" class="max-w-full max-h-full object-contain rounded-2xl shadow-2xl border border-neutral-800">
+                <button onclick="prevImage()" class="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-neutral-900/90 hover:bg-neutral-800 text-white flex items-center justify-center text-sm border border-neutral-700 transition-all">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button onclick="nextImage()" class="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-neutral-900/90 hover:bg-neutral-800 text-white flex items-center justify-center text-sm border border-neutral-700 transition-all">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="text-center mb-4">
+                <h3 id="modalTitle" class="text-xl font-bold text-white"></h3>
+                <p id="modalCategory" class="text-[10px] text-neutral-400 uppercase font-bold tracking-widest mb-1"></p>
+                <p id="modalDesc" class="text-neutral-400 text-xs max-w-xl mx-auto leading-relaxed"></p>
+            </div>
+
+            <div id="modalThumbnails" class="flex gap-2 overflow-x-auto p-2 max-w-full"></div>
+        </div>
+    </div>
+
+    <!-- ================= CONFIGURATEUR DE DEVIS ================= -->
+    <section id="devis" class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-300 text-xs font-semibold uppercase mb-4">
+                    <i class="fa-solid fa-clock text-xs"></i> Réponse garantie sous 24h à 48h
+                </div>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-2 uppercase tracking-wider">Configurateur de Devis Express</h2>
+                <p class="text-neutral-400 text-xs">Sélectionnez vos besoins et envoyez votre demande directement à notre équipe via Discord.</p>
+            </div>
+
+            <div class="p-8 rounded-2xl bg-neutral-900/50 border border-neutral-800 shadow-2xl">
+                <form id="quoteForm" onsubmit="handleQuoteSubmit(event)">
+                    <div class="mb-6">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">Votre Nom d'utilisateur Discord *</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-neutral-500"><i class="fa-brands fa-discord"></i></span>
+                            <input type="text" id="discordUser" required placeholder="ex: pseudo_discord" class="w-full pl-10 pr-4 py-3 rounded-xl bg-black border border-neutral-800 text-white text-xs placeholder-neutral-600 focus:outline-none focus:border-white transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">Catégorie de la Prestation *</label>
+                        <select id="serviceType" required class="w-full px-4 py-3 rounded-xl bg-black border border-neutral-800 text-white text-xs focus:outline-none focus:border-white transition-colors">
+                            <option value="Coverings Véhicules">Coverings Véhicules (LSPD, EMS, Entreprise, Luxe)</option>
+                            <option value="Vêtements & Packs Entreprise">Vêtements Civils & Packs Entreprise / Merchandising</option>
+                            <option value="EUP & Forces de l'Ordre">EUP & Forces de l'Ordre (LSPD, BCSO, SAHP...)</option>
+                            <option value="Gang / Organisation">Gang / Organisation (Tenues, vestes, gilets...)</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-8">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">Détails de la demande & Spécifications *</label>
+                        <textarea id="quoteDetails" rows="4" required placeholder="Décrivez votre projet (couleurs, logos entreprise/gang, références, nombre de véhicules/tenues...)" class="w-full px-4 py-3 rounded-xl bg-black border border-neutral-800 text-white text-xs placeholder-neutral-600 focus:outline-none focus:border-white transition-colors"></textarea>
+                    </div>
+
+                    <!-- Les deux boutons côte à côte -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <button type="submit" class="w-full py-4 rounded-xl bg-white text-black font-extrabold text-xs uppercase tracking-wider hover:bg-neutral-200 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Envoyer la Demande
+                        </button>
+                        
+                        <a id="formDiscordBtn" href="https://discord.gg/" target="_blank" class="w-full py-4 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-white font-extrabold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 border border-neutral-700">
+                            <i class="fa-brands fa-discord text-base"></i>
+                            Rejoindre le Discord
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section id="faq" class="py-20 bg-neutral-950/40 border-t border-neutral-900">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-2 uppercase tracking-wider">Foire Aux Questions</h2>
+                <p class="text-neutral-400 text-xs">Toutes les réponses à vos interrogations fréquentes.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="p-5 rounded-xl bg-neutral-900/40 border border-neutral-800">
+                    <h3 class="font-semibold text-white text-sm mb-2"><i class="fa-solid fa-circle-question text-neutral-400 mr-2"></i> Quel est le délai de livraison de ma commande ?</h3>
+                    <p class="text-neutral-400 text-xs leading-relaxed pl-6">Une fois votre devis validé, nous nous engageons à vous apporter une réponse et à débuter la création sous 24h à 48h selon la complexité du projet.</p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-neutral-900/40 border border-neutral-800">
+                    <h3 class="font-semibold text-white text-sm mb-2"><i class="fa-solid fa-circle-question text-neutral-400 mr-2"></i> Comment se déroule la livraison des fichiers ?</h3>
+                    <p class="text-neutral-400 text-xs leading-relaxed pl-6">Les livrables vous sont transmis directement prêts à être intégrés dans vos dossiers de ressources FiveM (fichiers `.ytd`, `.ydd`, etc.) avec leurs dossiers de configuration.</p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-neutral-900/40 border border-neutral-800">
+                    <h3 class="font-semibold text-white text-sm mb-2"><i class="fa-solid fa-circle-question text-neutral-400 mr-2"></i> Proposez-vous des modifications après livraison ?</h3>
+                    <p class="text-neutral-400 text-xs leading-relaxed pl-6">Oui, nous incluons des retouches gratuites sur les ajustements mineurs (ajustement de couleurs, positionnement de logos) pour garantir votre satisfaction complète.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="mt-auto py-10 border-t border-neutral-900 bg-black text-neutral-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div>
+                <p>© 2026 SM Design. Créé par SM Design. Non affilié à Rockstar Games.</p>
+            </div>
+            <div class="flex items-center gap-6">
+                <span class="text-[11px] text-neutral-600"><i class="fa-solid fa-shield-halved text-neutral-400 mr-1"></i> Support garanti 24h-48h</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= MODAL ADMIN ================= -->
+    <div id="adminModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 shadow-2xl relative">
+            <button onclick="closeAdminModal()" class="absolute top-6 right-6 text-neutral-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- AUTH SCREEN -->
+            <div id="adminAuthScreen">
+                <div class="text-center mb-8">
+                    <div class="w-14 h-14 rounded-2xl bg-white text-black flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white uppercase tracking-wider">Espace Administration</h3>
+                    <p class="text-neutral-400 text-xs mt-1">Accès restreint au développeur de SM Design</p>
+                </div>
+
+                <form onsubmit="handleAdminLogin(event)" class="space-y-4 max-w-sm mx-auto">
+                    <div>
+                        <label class="block text-xs font-semibold text-neutral-300 mb-2 uppercase tracking-wider">Mot de passe Administrateur</label>
+                        <input type="password" id="adminPasswordInput" required placeholder="••••••••••••" class="w-full px-4 py-3 rounded-xl bg-black border border-neutral-800 text-white text-xs focus:outline-none focus:border-white">
+                    </div>
+                    <p id="authError" class="text-red-400 text-xs hidden text-center"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Mot de passe incorrect.</p>
+                    <button type="submit" class="w-full py-3 rounded-xl bg-white text-black font-extrabold text-xs uppercase tracking-wider hover:bg-neutral-200 transition-all">Se connecter</button>
+                </form>
+            </div>
+
+            <!-- DASHBOARD SCREEN -->
+            <div id="adminDashboardScreen" class="hidden">
+                <div class="flex items-center justify-between border-b border-neutral-800 pb-4 mb-6">
+                    <div>
+                        <h3 class="text-lg font-bold text-white uppercase tracking-wider">Panneau de Contrôle</h3>
+                        <span class="text-xs text-neutral-400 font-medium">Administrateur Connecté</span>
+                    </div>
+                    <button onclick="logoutAdmin()" class="px-3 py-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-xs font-semibold border border-neutral-700">
+                        Déconnexion
+                    </button>
+                </div>
+
+                <!-- Tabs -->
+                <div class="flex border-b border-neutral-800 mb-6 gap-4 text-xs font-semibold uppercase tracking-wider">
+                    <button onclick="switchAdminTab('addProject')" id="tabBtnAddProject" class="pb-2 border-b-2 border-white text-white">Gérer Galerie</button>
+                    <button onclick="switchAdminTab('orders')" id="tabBtnOrders" class="pb-2 border-b-2 border-transparent text-neutral-400 hover:text-white">Commandes (<span id="orderCount">0</span>)</button>
+                    <button onclick="switchAdminTab('discordLink')" id="tabBtnDiscordLink" class="pb-2 border-b-2 border-transparent text-neutral-400 hover:text-white">Lien Discord</button>
+                    <button onclick="switchAdminTab('security')" id="tabBtnSecurity" class="pb-2 border-b-2 border-transparent text-neutral-400 hover:text-white">Mot de passe</button>
+                </div>
+
+                <!-- Tab 1: Gestion du Portfolio -->
+                <div id="tabContentAddProject" class="space-y-6">
+                    <div class="p-4 rounded-xl bg-black border border-neutral-800 space-y-4">
+                        <h4 class="font-bold text-white text-xs uppercase tracking-wider flex items-center gap-2"><i class="fa-solid fa-plus text-neutral-400"></i> Ajouter un Projet Multi-Photos</h4>
+                        
+                        <div>
+                            <label class="block text-xs font-semibold text-neutral-300 mb-1">Titre du Projet *</label>
+                            <input type="text" id="newProjectTitle" required placeholder="ex: Pack Tenues Entreprise Mécano" class="w-full px-3.5 py-2 rounded-xl bg-neutral-900 border border-neutral-800 text-white text-xs">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-neutral-300 mb-1">Catégorie du Portfolio *</label>
+                            <select id="newProjectCategory" class="w-full px-3.5 py-2 rounded-xl bg-neutral-900 border border-neutral-800 text-white text-xs">
+                                <option value="coverings">Coverings</option>
+                                <option value="vetements">Vêtements & Packs Entreprise</option>
+                                <option value="eup">EUP</option>
+                                <option value="gang_organisation">Gang/Organisation</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-neutral-300 mb-1">Indications & Description *</label>
+                            <textarea id="newProjectDesc" rows="2" required placeholder="Détails du projet (ex: Pack complet pour entreprise, 4 déclinaisons de logos...)" class="w-full px-3.5 py-2 rounded-xl bg-neutral-900 border border-neutral-800 text-white text-xs"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-neutral-300 mb-1">Photos du Projet (Sélection multiple) *</label>
+                            <input type="file" id="newProjectFile" accept="image/*" multiple class="w-full text-xs text-neutral-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-neutral-800 file:text-white hover:file:bg-neutral-700 cursor-pointer mb-2">
+                            <input type="text" id="newProjectUrl" placeholder="OU URLs d'images séparées par des virgules (ex: https://url1.jpg, https://url2.jpg)" class="w-full px-3.5 py-2 rounded-xl bg-neutral-900 border border-neutral-800 text-white text-xs">
+                        </div>
+
+                        <button onclick="addNewProject()" class="w-full py-2.5 rounded-xl bg-white text-black font-extrabold text-xs uppercase tracking-wider hover:bg-neutral-200 transition-all">
+                            Publier dans le Portfolio
+                        </button>
+                    </div>
+
+                    <!-- Liste des projets avec suppression -->
+                    <div class="space-y-3">
+                        <h4 class="font-bold text-white text-xs uppercase tracking-wider flex items-center gap-2"><i class="fa-solid fa-list-check text-neutral-400"></i> Projets Existants (Supprimer)</h4>
+                        <div id="adminPortfolioList" class="space-y-2 max-h-60 overflow-y-auto"></div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Gestion des Commandes en Temps Réel -->
+                <div id="tabContentOrders" class="hidden space-y-4">
+                    <div id="ordersList" class="space-y-4 max-h-[60vh] overflow-y-auto pr-1"></div>
+                </div>
+
+                <!-- Tab 3: Configuration du Lien Discord -->
+                <div id="tabContentDiscordLink" class="hidden space-y-4">
+                    <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider">Lien d'invitation Discord du serveur *</label>
+                    <input type="url" id="discordLinkInput" placeholder="https://discord.gg/votrecode" class="w-full px-4 py-3 rounded-xl bg-black border border-neutral-800 text-white text-xs">
+                    <button onclick="saveDiscordLink()" class="w-full py-3 rounded-xl bg-white text-black font-extrabold text-xs uppercase tracking-wider hover:bg-neutral-200 transition-all">Sauvegarder le Lien</button>
+                </div>
+
+                <!-- Tab 4: Security -->
+                <div id="tabContentSecurity" class="hidden space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-2">Nouveau Mot de passe Administrateur</label>
+                        <input type="password" id="newAdminPasswordInput" placeholder="Saisir un nouveau mot de passe" class="w-full px-4 py-3 rounded-xl bg-black border border-neutral-800 text-white text-xs mb-3">
+                        <button onclick="updateAdminPassword()" class="w-full py-3 rounded-xl bg-white text-black font-extrabold text-xs uppercase tracking-wider hover:bg-neutral-200 transition-all">Mettre à jour le mot de passe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        let adminPassword = localStorage.getItem('sm_admin_pass') || 'SMDESIGN2026';
+        let discordUrl = localStorage.getItem('sm_discord_link') || 'https://discord.gg/';
+        let orders = JSON.parse(localStorage.getItem('sm_orders') || '[]');
+
+        // Synchronisation en Temps Réel entre onglets
+        const orderChannel = window.BroadcastChannel ? new BroadcastChannel('sm_design_orders') : null;
+        if (orderChannel) {
+            orderChannel.onmessage = function(event) {
+                if (event.data && event.data.type === 'NEW_ORDER') {
+                    orders = JSON.parse(localStorage.getItem('sm_orders') || '[]');
+                    updateOrderCount();
+                    renderAdminOrders();
+                }
+            };
+        }
+
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'sm_orders') {
+                orders = JSON.parse(e.newValue || '[]');
+                updateOrderCount();
+                renderAdminOrders();
+            }
+        });
+
+        const defaultItems = [
+            { 
+                id: 1, 
+                title: 'Covering LSPD Interceptor', 
+                category: 'coverings', 
+                desc: 'Livrée haute définition pour véhicule d’intervention. Vues multiples.', 
+                images: [
+                    'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=800&auto=format&fit=crop&q=80',
+                    'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=800&auto=format&fit=crop&q=80'
+                ] 
+            },
+            { 
+                id: 2, 
+                title: 'Pack EUP LSPD & BCSO', 
+                category: 'eup', 
+                desc: 'Tenues complètes d’intervention avec gilets tactiques et insignes custom.', 
+                images: [
+                    'https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=800&auto=format&fit=crop&q=80',
+                    'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&auto=format&fit=crop&q=80'
+                ] 
+            },
+            { 
+                id: 3, 
+                title: 'Gilet & Vestes Gang/Organisation', 
+                category: 'gang_organisation', 
+                desc: 'Identité visuelle Gang/Organisation personnalisée avec broderies haute précision.', 
+                images: [
+                    'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&auto=format&fit=crop&q=80',
+                    'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=800&auto=format&fit=crop&q=80'
+                ] 
+            },
+            { 
+                id: 4, 
+                title: 'Pack Vêtements Civils & Entreprise Custom', 
+                category: 'vetements', 
+                desc: 'Pack streetwear civil et tenues professionnelles pour entreprise comprenant plusieurs déclinaisons.', 
+                images: [
+                    'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80',
+                    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&auto=format&fit=crop&q=80'
+                ] 
+            },
+            { 
+                id: 5, 
+                title: 'Covering Supercar Bugatti Customs', 
+                category: 'coverings', 
+                desc: 'Design carbone & finition ultra-exclusifs.', 
+                images: [
+                    'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&auto=format&fit=crop&q=80',
+                    'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&auto=format&fit=crop&q=80'
+                ] 
+            }
+        ];
+
+        let portfolioItems = JSON.parse(localStorage.getItem('sm_portfolio_items')) || defaultItems;
+        let currentModalImages = [];
+        let currentImageIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPortfolio('all');
+            updateOrderCount();
+            applyDiscordLinks();
+        });
+
+        function applyDiscordLinks() {
+            document.getElementById('navDiscordBtn').href = discordUrl;
+            document.getElementById('formDiscordBtn').href = discordUrl;
+            document.getElementById('discordLinkInput').value = discordUrl;
+        }
+
+        function renderPortfolio(filter) {
+            const grid = document.getElementById('portfolioGrid');
+            grid.innerHTML = '';
+
+            const filtered = filter === 'all' 
+                ? portfolioItems 
+                : portfolioItems.filter(item => item.category === filter);
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'rounded-2xl overflow-hidden bg-neutral-900/40 border border-neutral-800 hover:border-neutral-600 transition-all group cursor-pointer';
+                card.onclick = () => openGalleryModal(item);
+
+                let displayCat = item.category;
+                if(item.category === 'vetements') displayCat = 'Vêtements & Packs Entreprise';
+                if(item.category === 'gang_organisation') displayCat = 'Gang/Organisation';
+
+                const mainImg = (item.images && item.images.length > 0) ? item.images[0] : 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&auto=format&fit=crop&q=80';
+                const countBadge = (item.images && item.images.length > 1) ? `<span class="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-black/80 text-white font-bold text-[10px] border border-neutral-700 flex items-center gap-1"><i class="fa-solid fa-images text-neutral-400"></i> ${item.images.length} photos</span>` : '';
+
+                card.innerHTML = `
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="${mainImg}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0">
+                        ${countBadge}
+                    </div>
+                    <div class="p-5">
+                        <span class="text-[9px] font-bold text-neutral-400 uppercase tracking-widest block mb-1">${displayCat}</span>
+                        <h3 class="text-base font-bold text-white mb-2">${item.title}</h3>
+                        <p class="text-neutral-400 text-xs leading-relaxed line-clamp-2">${item.desc}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterPortfolio(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.filter === category) {
+                    btn.classList.remove('bg-neutral-900', 'text-neutral-400', 'border', 'border-neutral-800');
+                    btn.classList.add('bg-white', 'text-black');
+                } else {
+                    btn.classList.remove('bg-white', 'text-black');
+                    btn.classList.add('bg-neutral-900', 'text-neutral-400', 'border', 'border-neutral-800');
+                }
+            });
+            renderPortfolio(category);
+        }
+
+        /* LIGHTBOX MODAL */
+        function openGalleryModal(item) {
+            currentModalImages = item.images && item.images.length > 0 ? item.images : ['https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&auto=format&fit=crop&q=80'];
+            currentImageIndex = 0;
+
+            let displayCat = item.category;
+            if(item.category === 'vetements') displayCat = 'Vêtements & Packs Entreprise';
+            if(item.category === 'gang_organisation') displayCat = 'Gang/Organisation';
+
+            document.getElementById('modalTitle').innerText = item.title;
+            document.getElementById('modalCategory').innerText = displayCat;
+            document.getElementById('modalDesc').innerText = item.desc;
+
+            updateModalDisplay();
+            document.getElementById('galleryModal').classList.remove('hidden');
+        }
+
+        function closeGalleryModal() {
+            document.getElementById('galleryModal').classList.add('hidden');
+        }
+
+        function updateModalDisplay() {
+            document.getElementById('modalMainImage').src = currentModalImages[currentImageIndex];
+            
+            const thumbContainer = document.getElementById('modalThumbnails');
+            thumbContainer.innerHTML = '';
+
+            if (currentModalImages.length > 1) {
+                currentModalImages.forEach((imgSrc, idx) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = imgSrc;
+                    thumb.className = `w-14 h-14 rounded-xl object-cover cursor-pointer border-2 transition-all ${idx === currentImageIndex ? 'border-white scale-105' : 'border-neutral-800 opacity-60 hover:opacity-100'}`;
+                    thumb.onclick = () => {
+                        currentImageIndex = idx;
+                        updateModalDisplay();
+                    };
+                    thumbContainer.appendChild(thumb);
+                });
+            }
+        }
+
+        function nextImage() {
+            if (currentModalImages.length <= 1) return;
+            currentImageIndex = (currentImageIndex + 1) % currentModalImages.length;
+            updateModalDisplay();
+        }
+
+        function prevImage() {
+            if (currentModalImages.length <= 1) return;
+            currentImageIndex = (currentImageIndex - 1 + currentModalImages.length) % currentModalImages.length;
+            updateModalDisplay();
+        }
+
+        /* ADMIN FUNCTIONS */
+        function addNewProject() {
+            const title = document.getElementById('newProjectTitle').value.trim();
+            const category = document.getElementById('newProjectCategory').value;
+            const desc = document.getElementById('newProjectDesc').value.trim();
+            const fileInput = document.getElementById('newProjectFile');
+            const urlInput = document.getElementById('newProjectUrl').value.trim();
+
+            if (!title || !desc) {
+                alert('Veuillez remplir au moins le titre et la description du projet.');
+                return;
+            }
+
+            const processSave = (imagesArray) => {
+                const newProject = {
+                    id: Date.now(),
+                    title: title,
+                    category: category,
+                    desc: desc,
+                    images: imagesArray.length > 0 ? imagesArray : ['https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&auto=format&fit=crop&q=80']
+                };
+
+                portfolioItems.unshift(newProject);
+                localStorage.setItem('sm_portfolio_items', JSON.stringify(portfolioItems));
+                renderPortfolio('all');
+                renderAdminPortfolioList();
+                alert('Projet multi-photos publié avec succès !');
+
+                document.getElementById('newProjectTitle').value = '';
+                document.getElementById('newProjectDesc').value = '';
+                document.getElementById('newProjectUrl').value = '';
+                fileInput.value = '';
+            };
+
+            const images = [];
+
+            if (fileInput.files && fileInput.files.length > 0) {
+                let loadedCount = 0;
+                Array.from(fileInput.files).forEach(file => {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        images.push(e.target.result);
+                        loadedCount++;
+                        if (loadedCount === fileInput.files.length) {
+                            processSave(images);
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                });
+            } else if (urlInput) {
+                const urls = urlInput.split(',').map(u => u.trim()).filter(u => u.length > 0);
+                processSave(urls);
+            } else {
+                processSave([]);
+            }
+        }
+
+        function removeProject(id) {
+            if (confirm("Voulez-vous vraiment supprimer ce projet du portfolio ?")) {
+                portfolioItems = portfolioItems.filter(item => item.id !== id);
+                localStorage.setItem('sm_portfolio_items', JSON.stringify(portfolioItems));
+                renderPortfolio('all');
+                renderAdminPortfolioList();
+            }
+        }
+
+        function renderAdminPortfolioList() {
+            const container = document.getElementById('adminPortfolioList');
+            if (portfolioItems.length === 0) {
+                container.innerHTML = `<p class="text-xs text-neutral-500 text-center py-2">Aucun projet dans le portfolio.</p>`;
+                return;
+            }
+
+            container.innerHTML = portfolioItems.map(item => {
+                const mainImg = (item.images && item.images.length > 0) ? item.images[0] : 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&auto=format&fit=crop&q=80';
+                const count = item.images ? item.images.length : 1;
+                return `
+                <div class="p-2.5 rounded-xl bg-black border border-neutral-800 text-xs flex items-center justify-between gap-2">
+                    <div class="flex items-center gap-2 overflow-hidden">
+                        <img src="${mainImg}" class="w-8 h-8 rounded object-cover flex-shrink-0">
+                        <div class="truncate">
+                            <span class="font-bold text-white block truncate">${item.title}</span>
+                            <span class="text-[10px] text-neutral-400 uppercase">${item.category} (${count} photo${count > 1 ? 's' : ''})</span>
+                        </div>
+                    </div>
+                    <button onclick="removeProject(${item.id})" class="px-2.5 py-1 rounded bg-red-500/10 hover:bg-red-500/20 text-red-400 font-bold text-[10px] border border-red-500/20 transition-all flex-shrink-0">
+                        Supprimer
+                    </button>
+                </div>
+            `;
+            }).join('');
+        }
+
+        /* GESTION DES COMMANDES (ACCEPTER / REFUSER / SUPPRIMER) */
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+            const discordUser = document.getElementById('discordUser').value.trim();
+            const serviceType = document.getElementById('serviceType').value;
+            const quoteDetails = document.getElementById('quoteDetails').value.trim();
+
+            const newOrder = {
+                id: 'CMD-' + Math.floor(1000 + Math.random() * 9000),
+                discord: discordUser,
+                type: serviceType,
+                details: quoteDetails,
+                date: new Date().toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' }),
+                status: 'En attente'
+            };
+
+            orders.unshift(newOrder);
+            localStorage.setItem('sm_orders', JSON.stringify(orders));
+            updateOrderCount();
+
+            if (orderChannel) {
+                orderChannel.postMessage({ type: 'NEW_ORDER', order: newOrder });
+            }
+
+            alert("Votre demande de devis a été enregistrée avec succès ! Nous vous recontacterons sous 24h à 48h sur Discord.");
+            document.getElementById('quoteForm').reset();
+        }
+
+        function updateOrderStatus(orderId, newStatus) {
+            orders = orders.map(o => o.id === orderId ? { ...o, status: newStatus } : o);
+            localStorage.setItem('sm_orders', JSON.stringify(orders));
+            renderAdminOrders();
+        }
+
+        function deleteOrder(orderId) {
+            if (confirm("Voulez-vous supprimer cette commande de la liste ?")) {
+                orders = orders.filter(o => o.id !== orderId);
+                localStorage.setItem('sm_orders', JSON.stringify(orders));
+                updateOrderCount();
+                renderAdminOrders();
+            }
+        }
+
+        function renderAdminOrders() {
+            const container = document.getElementById('ordersList');
+            if (orders.length === 0) {
+                container.innerHTML = `<p class="text-xs text-neutral-500 text-center py-6">Aucune commande reçue pour le moment.</p>`;
+                return;
+            }
+
+            container.innerHTML = orders.map(o => {
+                let badgeClass = 'bg-neutral-800 text-neutral-300 border-neutral-700';
+                if (o.status === 'Acceptée') badgeClass = 'bg-emerald-950 text-emerald-400 border-emerald-800';
+                if (o.status === 'Refusée') badgeClass = 'bg-red-950 text-red-400 border-red-800';
+
+                return `
+                <div class="p-4 rounded-xl bg-black border border-neutral-800 text-xs space-y-3">
+                    <div class="flex items-center justify-between border-b border-neutral-900 pb-2">
+                        <div class="flex items-center gap-2">
+                            <span class="font-extrabold text-white">${o.id}</span>
+                            <span class="text-[10px] text-neutral-500">(${o.date})</span>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase border ${badgeClass}">
+                            ${o.status}
+                        </span>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <div class="flex items-center gap-2 text-neutral-300">
+                            <i class="fa-brands fa-discord text-neutral-400 w-4"></i>
+                            <span class="font-bold text-white">${o.discord}</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-neutral-300">
+                            <i class="fa-solid fa-layer-group text-neutral-400 w-4"></i>
+                            <span class="font-semibold text-neutral-200">${o.type}</span>
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-lg bg-neutral-950 border border-neutral-900 text-neutral-300 whitespace-pre-wrap leading-relaxed text-[11px]">
+                        <span class="text-[10px] font-bold uppercase text-neutral-500 block mb-1">Spécifications du projet :</span>
+                        ${o.details}
+                    </div>
+
+                    <div class="flex items-center justify-between pt-1 gap-2">
+                        <div class="flex items-center gap-2">
+                            <button onclick="updateOrderStatus('${o.id}', 'Acceptée')" class="px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 font-bold text-[10px] border border-emerald-500/20 transition-all flex items-center gap-1">
+                                <i class="fa-solid fa-check"></i> Accepter
+                            </button>
+                            <button onclick="updateOrderStatus('${o.id}', 'Refusée')" class="px-3 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 font-bold text-[10px] border border-red-500/20 transition-all flex items-center gap-1">
+                                <i class="fa-solid fa-xmark"></i> Refuser
+                            </button>
+                        </div>
+                        <button onclick="deleteOrder('${o.id}')" class="p-1.5 rounded-lg text-neutral-500 hover:text-red-400 transition-colors" title="Supprimer">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            }).join('');
+        }
+
+        function saveDiscordLink() {
+            const link = document.getElementById('discordLinkInput').value.trim();
+            if (link) {
+                discordUrl = link;
+                localStorage.setItem('sm_discord_link', link);
+                applyDiscordLinks();
+                alert("Lien d'invitation Discord enregistré avec succès !");
+            }
+        }
+
+        function openAdminModal() {
+            document.getElementById('adminModal').classList.remove('hidden');
+        }
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const inputPass = document.getElementById('adminPasswordInput').value;
+            if (inputPass === adminPassword) {
+                document.getElementById('adminAuthScreen').classList.add('hidden');
+                document.getElementById('adminDashboardScreen').classList.remove('hidden');
+                document.getElementById('authError').classList.add('hidden');
+                renderAdminOrders();
+                renderAdminPortfolioList();
+            } else {
+                document.getElementById('authError').classList.remove('hidden');
+            }
+        }
+
+        function logoutAdmin() {
+            document.getElementById('adminAuthScreen').classList.remove('hidden');
+            document.getElementById('adminDashboardScreen').classList.add('hidden');
+            document.getElementById('adminPasswordInput').value = '';
+        }
+
+        function switchAdminTab(tab) {
+            ['AddProject', 'Orders', 'DiscordLink', 'Security'].forEach(t => {
+                document.getElementById(`tabContent${t}`).classList.add('hidden');
+                document.getElementById(`tabBtn${t}`).className = 'pb-2 border-b-2 border-transparent text-neutral-400 hover:text-white';
+            });
+
+            const activeTab = tab.charAt(0).toUpperCase() + tab.slice(1);
+            document.getElementById(`tabContent${activeTab}`).classList.remove('hidden');
+            document.getElementById(`tabBtn${activeTab}`).className = 'pb-2 border-b-2 border-white text-white';
+        }
+
+        function updateOrderCount() {
+            document.getElementById('orderCount').innerText = orders.length;
+        }
+
+        function updateAdminPassword() {
+            const newPass = document.getElementById('newAdminPasswordInput').value;
+            if (newPass) {
+                adminPassword = newPass;
+                localStorage.setItem('sm_admin_pass', newPass);
+                alert("Mot de passe administrateur modifié avec succès !");
+                document.getElementById('newAdminPasswordInput').value = '';
+            }
+        }
+    </script>
+</body>
+</html>
